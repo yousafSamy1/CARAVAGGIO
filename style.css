@@ -1,0 +1,265 @@
+/* إعادة تعيين بسيطة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* يفضل استخدام خطوط عربية مثل 'Cairo' أو 'Harmattan' */
+    font-family: 'Arial', Tahoma, sans-serif;
+}
+
+body {
+    background-color: #fcf6e8; /* لون خلفية فاتح جداً كالورق */
+    color: #333;
+    line-height: 1.5;
+    direction: rtl; 
+    position: relative; 
+    min-height: 100vh; 
+}
+
+/* --- العلامة المائية (Watermark) بنمط حقوق النشر (Copyright) --- */
+
+body::before {
+    content: "";
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    height: 100%;
+    background-image: url('caravaggio-logo.jpg'); /* تأكد من اسم الصورة هنا */
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: 50%; /* حجم اللوجو في الخلفية */
+    opacity: 0.07; /* زودت الشفافية شوية عشان تبان أوضح (7% وضوح) */
+    pointer-events: none; 
+    z-index: -1; 
+}
+
+/* --- تنسيق الواجهة الأمامية (Menu Content) --- */
+
+.menu-container {
+    z-index: 1; 
+    max-width: 1400px; 
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; 
+}
+
+/* الأقسام نفسها هتاخد ظل بس من غير خلفية بيضاء عشان الـ watermark تبان */
+.chimney-section {
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* ظل خفيف بس */
+}
+
+.chimney-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #5a4b40;
+}
+
+.logo-text {
+    font-size: 2.2em; 
+    color: #8a7a6b;
+    font-weight: normal;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.inline-logo {
+    height: 30px; 
+    margin-inline-end: 10px; 
+}
+
+
+.chimney-header h1 {
+    font-size: 3.5em; 
+    color: #5a4b40; 
+    letter-spacing: 5px;
+}
+
+.chimney-header h2 {
+    font-size: 1.5em;
+    color: #8a7a6b;
+}
+
+.cones-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px;
+}
+
+.cones-column {
+    flex: 1;
+    min-width: 350px; 
+    padding: 0 15px;
+}
+
+.section-title {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 5px 0;
+}
+
+.traditional-title { color: #d6b876; border-bottom: 3px solid #d6b876; } 
+.special-title { color: #6e4e42; border-bottom: 3px solid #6e4e42; } 
+.flavor-title { color: #5a4b40; border-bottom: 3px solid #5a4b40; } 
+
+.menu-items-list {
+    margin-top: 10px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333; 
+    min-width: 150px;
+}
+
+.item-desc {
+    flex-grow: 1;
+    font-size: 0.9em;
+    color: #666; 
+    margin: 0 10px;
+    text-align: right;
+}
+
+.item-price {
+    font-weight: 900;
+    color: #6e4e42; 
+    font-size: 1.2em;
+    min-width: 60px;
+    text-align: left;
+}
+
+/* --- تنسيق قسم المشروبات (Drinks) --- */
+
+.drinks-section {
+    padding: 30px 0;
+}
+
+.caravaggio-title {
+    font-size: 3em;
+    font-weight: bold;
+    color: #3f684c; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.drinks-columns-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    border: 5px solid #d6b876; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+}
+
+.drink-column {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px 10px;
+    /* خلفية بيضاء شبه شفافة للأعمدة الداخلية لضمان وضوح النص */
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 8px; 
+}
+
+/* الألوان القديمة هتشتغل كطبقة فوق الـ rgba(255, 255, 255, 0.7) */
+.iced-drinks { background-color: rgba(252, 248, 238, 0.7); border-left: 2px dashed #d6b876; } 
+.hot-soft-drinks { background-color: rgba(247, 243, 232, 0.7); border-left: 2px dashed #d6b876; } 
+.coffee-drinks { background-color: rgba(252, 248, 238, 0.7); }
+
+.drink-column .column-title {
+    font-size: 1.5em;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.red-accent { 
+    background-color: #c94c4c; 
+    color: white; 
+} 
+.brown-accent { 
+    background-color: #6e4e42; 
+    color: white; 
+} 
+
+.sub-heading {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    color: #8a7a6b;
+    margin-bottom: 10px;
+}
+
+.delivery {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #5a4b40;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* استجابة الأجهزة (Media Queries) */
+@media (max-width: 1024px) {
+    /* في الأجهزة اللوحية، اجعل الأعمدة عمودية لتجنب الضغط */
+    .drinks-columns-wrapper {
+        flex-direction: column; 
+        border: none;
+    }
+    .drink-column {
+        min-width: 100%;
+        margin-bottom: 15px;
+        border: 1px solid #d6b876;
+    }
+    /* العلامة المائية تكون أصغر قليلاً */
+    body::before {
+        background-size: 100%; 
+        opacity: 0.05; 
+    }
+}
+@media (max-width: 768px) {
+    /* في الهواتف، تصغير العناوين والأيقونات الرئيسية */
+    .chimney-header h1 {
+        font-size: 2.5em; 
+    }
+    .cones-content-wrapper {
+        flex-direction: column;
+    }
+    .inline-logo {
+        height: 25px; 
+    }
+    .logo-text {
+        font-size: 1.8em;
+    }
+    /* محاولة إظهار عمودين جنبًا إلى جنب (قد تضيق الكلمات) */
+    .drinks-columns-wrapper {
+        flex-direction: row; 
+        flex-wrap: wrap;
+    }
+    .drink-column {
+        min-width: 48%; 
+    }
+
+    /* العلامة المائية تكون أكبر وأوضح قليلاً في الهواتف */
+    body::before {
+        background-size: 150%; 
+        opacity: 0.03; 
+    }
+}
